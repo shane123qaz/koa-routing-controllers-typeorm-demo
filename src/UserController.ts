@@ -1,5 +1,6 @@
-import {Controller, Param, Body, Get, Put, Delete, Post} from "routing-controllers";
+import { Controller, Param, Body, Get, Put, Delete, Post } from "routing-controllers";
 import { IsEmail } from "class-validator";
+import { UserRepository } from "./repository/UserRepository";
 
 class User {
     id: number;
@@ -24,10 +25,11 @@ export class UserController {
 
     @Post("/users")
     post(@Body() user: User) {
+        new UserRepository().save();
         return `Saving user: ${user}`;
     }
 
-    @Post("users/:id")
+    @Put("users/:id")
     put(@Param("id") id: number, @Body() user: User) {
         return `Updating user: #${id} -- ${user}`
     }
