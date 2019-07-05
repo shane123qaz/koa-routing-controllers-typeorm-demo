@@ -1,13 +1,19 @@
+import "reflect-metadata";
+import { createKoaServer, useKoaServer } from "routing-controllers";
+import { UserController } from './UserController';
 import * as Koa from "koa";
 
 const app = new Koa();
 
-app.use(async ctx => {
-    ctx.body = "Hello World";
+// const app = createKoaServer({
+//     controllers: [UserController]
+// })
+
+useKoaServer(app, {
+    validation: true,
+    routePrefix: "/api",
+    controllers: [UserController]
 });
-
-app.on("error", console.error);
-
 
 const post: number = Number(process.env.PORT) || 3000;
 app.listen(post);

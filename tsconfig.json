@@ -6,5 +6,7 @@
 		"allowJs": true,
 		"allowSyntheticDefaultImports": true,
 		"alwaysStrict": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true
 	}
 }
