@@ -2,6 +2,9 @@ import "reflect-metadata";
 import { createKoaServer, useKoaServer } from "routing-controllers";
 import { UserController } from './UserController';
 import * as Koa from "koa";
+import { createConnection } from "typeorm";
+
+createConnection().catch(console.error);
 
 const app = new Koa();
 

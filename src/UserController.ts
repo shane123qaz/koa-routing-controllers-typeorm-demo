@@ -1,18 +1,16 @@
-import { Controller, Param, Body, Get, Put, Delete, Post } from "routing-controllers";
-import { IsEmail } from "class-validator";
+import { Param, Body, Get, Put, Delete, Post, JsonController } from "routing-controllers";
 import { UserRepository } from "./repository/UserRepository";
+import { UserInfo } from "./model/UserInfo";
 
-class User {
-    id: number;
-    name: string;
-    age: number;
-    @IsEmail()
-    email: string;
-}
-
-@Controller()
+@JsonController()
 export class UserController {
-    
+
+    private userRepository;
+
+    constructor() {
+        this.userRepository = new UserRepository();
+    }
+
     @Get("/users")
     getAll() {
         return "This action return all users";
@@ -24,13 +22,13 @@ export class UserController {
     }
 
     @Post("/users")
-    post(@Body() user: User) {
-        new UserRepository().save();
+    post(@Body() user: UserInfo) {
+        this.userRepository.save(user);
         return `Saving user: ${user}`;
     }
 
     @Put("users/:id")
-    put(@Param("id") id: number, @Body() user: User) {
+    put(@Param("id") id: number, @Body() user: UserInfo) {
         return `Updating user: #${id} -- ${user}`
     }
 
