@@ -6,8 +6,7 @@
         "build": "tsc",
         "serve": "ts-node src/app.ts",
         "start": "nodemon",
-        "migration": "ts-node ./node_modules/typeorm/cli.js migration:run",
-        "revert-migration": "ts-node ./node_modules/typeorm/cli.js migration:revert"
+        "typorm-cli": "ts-node ./node_modules/typeorm/cli.js"
     },
     "keywords": [],
     "author": "",
