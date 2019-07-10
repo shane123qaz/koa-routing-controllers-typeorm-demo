@@ -13,7 +13,8 @@ export class UserController {
 
     @Get("/users")
     getAll() {
-        return "This action return all users";
+        throw Error("Error happen in get users");
+        // return "This action return all users";
     }
 
     @Get("/users/:id")

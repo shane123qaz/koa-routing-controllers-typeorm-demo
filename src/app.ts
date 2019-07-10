@@ -18,5 +18,7 @@ useKoaServer(app, {
     controllers: [UserController]
 });
 
-const post: number = Number(process.env.PORT) || 3000;
-app.listen(post);
+const port: number = Number(process.env.PORT) || 3000;
+app.listen({port}, () => {
+    console.log(`🚀 Server ready at http://localhost:${port}`);
+});
