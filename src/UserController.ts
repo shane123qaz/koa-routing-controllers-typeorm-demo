@@ -28,12 +28,12 @@ export class UserController {
         return `Saving user: ${user}`;
     }
 
-    @Put("users/:id")
+    @Put("/users/:id")
     put(@Param("id") id: number, @Body() user: UserInfo) {
         return `Updating user: #${id} -- ${user}`
     }
 
-    @Delete("users/:id")
+    @Delete("/users/:id")
     remove(@Param("id") id: number) {
         return `Removing user #${id}`;
     }
