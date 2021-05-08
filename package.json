@@ -30,7 +30,7 @@
         "ts-node": "^8.3.0",
         "tslint": "^5.18.0",
         "typedi": "^0.8.0",
-        "typeorm": "^0.2.18",
+        "typeorm": "^0.2.25",
         "typescript": "^3.5.2"
     },
     "description": ""
